@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="">
+    <title>Api</title>
+</head>
+<body>
+    <header class="header">
+        <h1>¿Qué película está mejor valorada en IMDB?</h1>
+    </header>
+
+    <div class="p1"><h2 id="pelicula1"></h2></div>
+        <span>vs</span>
+    <div class="p2">
+        <h2 id="pelicula2"></h2><br>
+        <button id="mejor" class="boton">Mejor</button>
+        <button id="peor" class="boton">Peor</button>
+    </div>
+    
+    <script>
+        async function mostrarDatos(){
+            const url = 'https://moviesminidatabase.p.rapidapi.com/movie/order/byRating/';
+            const apiKey = '2fc00bacedmshae7ef419077b356p195b26jsn86d52e5ba47d';
+
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': apiKey,
+                    'X-RapidAPI-Host': 'moviesminidatabase.p.rapidapi.com'
+                }
+            };
+
+            try {
+                let response = await fetch(url, options);
+                let result = await response.json();
+
+                console.log(result);
+
+                let numeroAleatorio1 = Math.floor(Math.random() * 49);
+                let numeroAleatorio2 = Math.floor(Math.random() * 49);
+
+                while(numeroAleatorio1 == numeroAleatorio2){
+                    numeroAleatorio2 = Math.floor(Math.random() * 49);
+                }
+
+                let pelicula1 = document.getElementById('pelicula2');
+                let pelicula2 = document.getElementById('pelicula2');
+
+                document.getElementById('pelicula1').innerHTML ="<b>"+ result.results[numeroAleatorio1].title+"<b>" + " Tiene un rating de: " + result.results[numeroAleatorio1].rating;
+                document.getElementById('pelicula2').innerHTML = result.results[numeroAleatorio2].title + " Tiene un rating :";
+
+                document.getElementById('mejor').addEventListener('click', () => {
+                    if(result.results[numeroAleatorio1].rating > result.results[numeroAleatorio2].rating){
+                        alert('Has acertado');
+                    } else {
+                        alert('Has fallado');
+                    }
+
+                    pelicula1.innerHTML = result.results[numeroAleatorio2].title +" Tiene un rating de: " +result.results[numeroAleatorio1].rating;
+                    mostrarDatos();
+                });
+
+                document.getElementById('peor').addEventListener('click', () => {
+                    if(result.results[numeroAleatorio1].rating < result.results[numeroAleatorio2].rating){
+                        alert('Has acertado');
+                    } else {
+                        alert('Has fallado');
+                    }
+
+                    document.getElementById('pelicula2').innerHTML = result.results[numeroAleatorio2].title +" Tiene un rating de: " +result.results[numeroAleatorio2].rating;
+                    mostrarDatos();
+                });
+
+            } catch (error) {
+                console.error(error);
+            }
+
+        }
+
+        mostrarDatos();
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<body>
+    <h1>Contacto</h1>
+
+    <div id="agradecimiento" style="display: none;">
+        <span>Gracias por enviar sus datos!!</span>
+    </div>
+
+    <form id="formulario" action="">
+        <label for="nombre">Nombre: </label><br>
+        <input type="text" id="nombre"><br>
+
+        <label for="correo">Correo: </label><br>
+        <input type="email" id="correo"><br>
+
+        <label for="mensaje">Mensaje: </label><br>
+        <textarea name="mensaje" id="mensaje"></textarea><br>
+
+        <input type="submit" value="Enviar Mensaje" onclick="return enviar();">
+    </form>
+
+
+    <script>
+        function enviar(){
+            if(document.getElementById("nombre").value == ""){
+                alert('No se ha ingresado el nombre');
+                return true;
+            }
+
+            else if(document.getElementById("correo").value == ""){
+                alert('No se ha ingresado el correo');
+                return true;
+            }
+           
+            else if(document.getElementById("mensaje").value == ""){
+                alert('No se ha ingresado el mensaje');
+                return true;
+            }
+
+            else{
+                document.getElementById("formulario").style.display="none";
+                document.getElementById("agradecimiento").style.display="block";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

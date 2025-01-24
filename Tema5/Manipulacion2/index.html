@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulacion2</title>
+    <script>
+        window.onload = inicio;
+
+        function inicio(){
+            body = document.getElementsByTagName("body");
+
+            let boton = document.createElement("button");
+            boton.setAttribute("id", "boton");
+
+            let texto = document.createTextNode("Boton");
+        
+            boton.appendChild(texto);
+            
+            body[0].appendChild(boton);
+
+
+            document.getElementById("boton").addEventListener("click",manipularDocumento);
+        }
+
+
+        function manipularDocumento(){
+            lista = document.getElementById("lista");
+
+            let nuevoElemento = document.createElement("li");
+            let texto = document.createTextNode("Ejemplo4");
+
+            nuevoElemento.setAttribute("id", "elemento4");
+
+
+        
+            nuevoElemento.appendChild(texto);
+            lista.appendChild(nuevoElemento);
+
+            let ultimoHijo = lista.firstElementChild;
+            lista.removeChild(ultimoHijo);
+        }
+    </script>
+</head>
+<body>
+    <h1>Manipulacion2</h1>
+    <p>Ejercicio2</p>
+    <ul id="lista">
+        <li>Ejemplo1</li>
+        <li>Ejemplo2</li>
+        <li>Ejemplo3</li>
+    </ul>
+</body>
+</html>

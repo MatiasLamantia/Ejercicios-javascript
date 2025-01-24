@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date</title>
+  </head>
+  <body>
+    <script>
+      var fechaString = prompt("Ingresa tu fecha de nacimiento (YYYY-MM-DD)");
+
+      const patron = /^\d{4}-\d{2}-\d{2}$/;
+
+      if (!patron.test(fechaString)) {
+      alert("Formato de fecha incorrecto. Debe ser YYYY-MM-DD.");
+        }
+
+      var fechaActual = new Date();
+      var fecha = new Date(fechaString);
+
+      var edad = fechaActual.getFullYear() - fecha.getFullYear();
+
+      var diaSemana;
+      switch (fecha.getDay()) {
+        case 0:
+          diaSemana = "Domingo";
+          break;
+        case 1:
+          diaSemana = "Lunes";
+          break;
+        case 2:
+          diaSemana = "Martes";
+          break;
+        case 3:
+          diaSemana = "Miércoles";
+          break;
+        case 4:
+          diaSemana = "Jueves";
+          break;
+        case 5:
+          diaSemana = "Viernes";
+          break;
+        case 6:
+          diaSemana = "Sábado";
+          break;
+      }
+
+      var diasDesdeNacimiento = fechaActual.getTime() - fecha.getTime();
+
+      var siguienteCump = new Date(fecha);
+      siguienteCump.setFullYear(fechaActual.getFullYear() + 1)
+
+
+      var diasParaProximoCum = siguienteCump.getTime() - fechaActual.getTime();
+
+      console.log("Edad : " + edad);
+      console.log("Día de la semana de nacimiento : " + diaSemana);
+      console.log("Días desde el nacimiento: " + Math.floor(diasDesdeNacimiento / 86400000));
+      console.log( "Días para el próximo cumpleaños: " + Math.abs(Math.floor(diasParaProximoCum / 86400000)));
+
+    </script>
+  </body>
+</html>

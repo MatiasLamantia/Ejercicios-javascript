@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<p id="parrafo1"></p>
+	<p id="parrafo2"></p>
+	<p id="parrafo3"></p>
+	
+	
+
+<script>
+	/*Variables de JAVASCRIPT
+		-Identificadores unicos
+		-Recomendable utilizar identificadores descriptivos
+		-Empiezan por letra ,$,_ y soguen con letra número, $ o _
+		-Pueden conterner cadenas ("" , '') y números (enteros o decimales)
+		-Son sensibles a las mayusculas (nombre != Nombre != Nombre)
+		-No pueden utilizarse palabras reservadas */
+
+	//Declaración de variable
+	var nombre;
+
+	//Mostramos el valor de la variable (undefined)
+	document.getElementById("parrafo1").innerHTML = nombre;
+
+	//Asignacion de valor a una variable 
+	nombre = "Ada";
+
+	//Mostramos el valor de la variable 
+	document.getElementById("parrafo2").innerHTML = nombre;
+
+	//Declaración de variables de una sola sentencia 
+	//var pais , nacimiento
+	var pais="Reino Unido",
+		nacimiento=1815;
+
+	//Asignación de operaciones a una variable 
+	var nombreApellido = "Ada" + " " + "Lovelace";
+	var fallecimiento = nacimiento + 37;
+
+	document.getElementById("parrafo3").innerHTML = nombreApellido + " nació en " + pais + " en " + nacimiento + " y murio en " + fallecimiento;
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="invertir">Introduzca la cadena a invertir</label><input type="texto" name="invertir" id="invertir">
+        <input type="button" onclick="invertirCadena()" value="Invertir">
+
+        <p id="resultadoInvertir"></p><br>
+
+        <label for="repetir">Introduzca la cadena </label><input type="texto" name="repetir" id="repetir">
+        <input type="button" onclick="repetirCaracter()" value="Invertir">
+
+        <p id="resultadoRepetir"></p>
+
+    </form>
+    <script>
+
+        function invertirCadena(){
+
+            //Cadena a invertir
+            var cadena = document.getElementById("invertir").value;
+
+            var cadenaInversa="";
+            var letraActual;
+
+            //Por cada letra de la cadena desde la ultima a la primera
+            for(var i = cadena.length - 1;i >= 0 ; i--){
+                
+                //Si el carácter actual está en mayusculas se transforma en minuscula
+                if(cadena.charAt(i) === cadena.charAt(i).toUpperCase()){
+                    letraActual = cadena.charAt(i).toLowerCase();
+                }
+                else{
+                //En caso que no este en mayuscula se para a mayuscula
+                    letraActual = cadena.charAt(i).toUpperCase();
+                }
+                
+                //Se guarda el caracter modificado
+                cadenaInversa += letraActual;
+            }
+
+            //Se imprime el resultado
+            var resultado = "La cadena Inversa es :" + cadenaInversa;
+            document.getElementById("resultadoInvertir").innerHTML = resultado;
+        }
+
+        function repetirCaracter(){
+            
+            //Se obtiene la cadena que se quiera modificar ademas de el caracter que se quiera repetir y la cantidad de veces
+            var cadena = document.getElementById("repetir").value;
+            var caracter = prompt("Introduzca el carácter que quiera repetir");
+            var veces = parseFloat(prompt("Introduzca la cantidad de veces que quiera repetir el carácter"));
+
+            var cadenaFinal="";
+
+            //Por cada caracter de la cadena
+            for(var i = 0 ; i <= cadena.length ; i++){
+
+                //Si el caracter actual coincide con el que hay que repetir
+                if(cadena.charAt(i) === caracter){
+                    //Se imprime guarda el caracter la cantidad de veces que diga el usuario
+                    for(var x = 1; x <= veces ; x++){
+                        cadenaFinal += cadena.charAt(i);         
+                    }
+                    
+                }
+                //En caso de que no coincida se guarda el caracter solo una vez
+                else{
+                    cadenaFinal += cadena.charAt(i);
+                }
+
+                document.getElementById("resultadoRepetir").innerHTML = cadenaFinal;
+            }
+        }
+    </script>
+</body>
+</html>

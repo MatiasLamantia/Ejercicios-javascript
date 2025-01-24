@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="resultados"></p>
+    <script>
+        //Se generar los números
+        var n1 = Math.floor(Math.random() * 6) + 1;
+        var n2 = Math.floor(Math.random() * 6) + 1;
+
+        //Se imprimen el resiultado de las tiradas
+        resultado =  "El resultado de las dos tiradas ha sido" + n1 + " " + n2;
+
+        //En caso de que los dos números sean 1 se imprime ojo de gato
+        if(n1 == 1 && n2 == 1){
+            resultado +="<br>Has sacado Ojo de Gato";
+        }
+        document.getElementById("resultados").innerHTML = resultado;
+    </script>
+</body>
+</html>

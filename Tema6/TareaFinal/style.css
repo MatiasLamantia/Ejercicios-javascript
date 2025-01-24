@@ -1,0 +1,63 @@
+body{
+    font-family: 'Roboto';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.resultado{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+
+}
+.dia{
+    height: 400px;
+    display: flex;
+    padding: 1.5em;
+    width: 330px;
+    height: 480px;
+    flex-direction: column;
+    border-radius: 1em;
+    border: solid 1px black;
+    background-color: #F7DED0;
+}
+
+.tituloDia{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: solid 1px black;
+}
+
+.iconoTiempo{
+    width: 100px;
+    height: 100px;
+
+}
+button {
+    padding: 1em;
+    background-color: #45a148; 
+    border: none;
+    cursor: pointer;
+    border-radius: 1em;
+}
+
+form{
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    border: solid 1px black;
+    width: 300px;
+
+}
+input{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

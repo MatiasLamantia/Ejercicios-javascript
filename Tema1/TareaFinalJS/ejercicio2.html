@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ejercicio 2 </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+
+<body>
+    <h1>Tareas :</h1>
+    <ol id="listaTareas">
+
+    </ol>
+    <form>
+        <input type="button" onclick="agregartarea()" value="Agregar Tarea"></input>
+        <input type="button" onclick="eliminarTarea()" value="Eliminar Tarea"></input>
+    </form>
+
+    <script>
+        var idSiguenteTarea =1;
+        function agregartarea() {
+            
+            //Se pide la tarea que se quiere agregar
+            var contenidoTarea = prompt("¿Cual es la tarea?");
+            var lista = document.getElementById("listaTareas");
+
+            
+             //Creacion elemento li que contiene la tarea
+            var tarea = document.createElement("li");
+            tarea.setAttribute("id", idSiguenteTarea);
+            idSiguenteTarea +=1;
+            tarea.innerHTML = contenidoTarea;
+
+            //Creación del check box para marcar si la tarea está realizada
+            var checkbox = document.createElement("input");
+            checkbox.setAttribute("type", "checkbox");
+
+
+
+            
+            lista.appendChild(tarea);
+            tarea.appendChild(checkbox);
+            tarea.appendChild(botonEliminar);
+        
+        }
+
+        function eliminarTarea(){
+            idTarea = prompt("Introduzca el numero de la tarea a eliminar");
+            
+            var tareaEliminar = document.getElementById(idTarea);
+            tareaEliminar.parentNode.removeChild(tareaEliminar);
+            
+        }
+
+
+
+        function terminarTarea() {
+
+        }
+    </script>
+
+</body>
+
+</html>

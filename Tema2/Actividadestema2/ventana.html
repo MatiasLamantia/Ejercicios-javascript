@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bienvenido a la sorpresa del día"</h2>
+
+    <button onclick="mover()" >Mover!!</button>
+    <button onclick="colorea()" >Colorea!!</button>
+    <button onclick="EscodeyMuestra()" >Escode y Muestra!!</button>
+    <button onclick="cerrar()">Cerrar</button>
+
+    <script>
+         var ventana = window.self;
+            
+
+        function mover(){
+            var x = prompt("Indique la cordenada X");
+            var y = prompt("Indique la cordenada Y");
+
+            ventana.moveBy(x,y);
+           
+
+        }
+
+        function colorea(){
+        //funcion para generar color aleatoriamente 
+        var simbolos, color;
+        simbolos = "0123456789ABCDEF";
+        color = "#";
+
+            for(var i = 0; i < 6; i++){
+                color = color + simbolos[Math.floor(Math.random() * 16)];
+            }
+
+            ventana.document.body.style.backgroundColor = color
+        }
+
+        
+        function EscodeyMuestra (){
+            ventana.document.body.style.display = "none";
+            setTimeout(mostrar,1000);
+        }
+
+        function mostrar(){
+            ventana.document.body.style.display = "block";
+        }
+
+        function cerrar(){
+           ventana.close();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="C:\Users\alumnociclo\Desktop\jquery-3.7.1.min.js"></script>
+    <style>
+        .resaltado {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+
+            // Propiedades CSS
+            console.log($("#parrafo1").css("font-size"));
+
+            $("#parrafo2").css("color", "blue");
+
+            $("#parrafo3").css({
+                "font-size": "18px",
+                "background-color": "yellow"
+            });
+
+            // Clases CSS
+            $("#parrafo4").addClass("resaltado");
+
+            $("#parrafo5").removeClass();
+            
+            $("#parrafo6").click(function(){
+                $(this).toggleClass("resaltado");
+            });
+
+            // Métodos Propios para Cambiar Dimensiones CSS
+
+            console.log($("#caja1").width());
+
+            $("#caja2").height("100px");
+
+            console.log($("#caja3").innerWidth());
+
+            $("#caja4").innerHeight("80px");
+
+            console.log($("#caja5").outerWidth());
+
+            $("#caja6").outerHeight("120px");
+
+          
+        });
+    </script>
+</head>
+
+<body>
+    <p id="parrafo1" style="font-size: 24px;">Texto 1</p>
+    <p id="parrafo2">Texto 2</p>
+    <p id="parrafo3">Texto 3</p>
+
+    <p id="parrafo4">Texto 4</p>
+    <p id="parrafo5" class="resaltado">Texto 5</p>
+    <p id="parrafo6">Texto 6</p>
+
+    <div id="caja1" style="width: 200px; border: 1px solid black;">Caja 1</div>
+    <div id="caja2" style="width: 150px; border: 1px solid black;">Caja 2</div>
+    <div id="caja3" style="width: 100px; border: 1px solid black;">Caja 3</div>
+    <div id="caja4" style="width: 80px; border: 1px solid black;">Caja 4</div>
+    <div id="caja5" style="width: 120px; border: 1px solid black;">Caja 5</div>
+    <div id="caja6" style="width: 180px; border: 1px solid black;">Caja 6</div>
+</body>
+
+</html>

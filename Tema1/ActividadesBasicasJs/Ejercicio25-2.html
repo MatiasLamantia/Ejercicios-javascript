@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio25-2</title>
+</head>
+<body>
+<script>
+	function esPrimo(numero){
+		var n;
+		var resultado= true;
+
+		for(n=2;n<numero;n++){
+			if(numero % n == 0){
+				resultado = false;
+				break;
+			}
+		}
+		return resultado;
+	}
+
+		function mostrarPrimos(nummax){
+			var i;
+			for(i = 2;i<=nummax;i++){
+				if (esPrimo(i)) {
+					document.write(i+" ");
+				}
+			}
+		}
+
+	var num = prompt("Introduzca un número");
+		mostrarPrimos(num);
+
+</script>
+</body>
+</html>

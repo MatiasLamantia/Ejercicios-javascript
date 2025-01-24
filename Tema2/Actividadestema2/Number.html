@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+</head>
+<body>
+    <script>
+        var myNumber = 12000;
+        myNumber = myNumber.toExponential();
+        alert(myNumber);
+
+        var decimalNumber = 293.2322;
+        decimalNumber = decimalNumber.toFixed(2);
+        alert(decimalNumber);
+
+        var integerNumber = 2332;
+        // alert(integerNumber.isInteger());
+
+        myNumber = myNumber.toString();
+        alert(myNumber);
+
+        alert(decimalNumber.valueOf());
+
+        var numericString = "123.45";
+        numericString = parseFloat(numericString);
+        alert(numericString);
+
+        alert(Number.MAX_SAFE_INTEGER);
+        alert(Number.MIN_SAFE_INTEGER);
+
+        myNumber /= 0;
+        if(myNumber = Infinity){
+            alert (myNumber);
+        }
+
+        if(isNaN(decimalNumber)){
+            alert (decimalNumber);
+        }
+
+        integerNumber = integerNumber.toLocaleString();
+        alert(integerNumber);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio de jQuery</title>
+    <script src="https://educacionadistancia.juntadeandalucia.es/centros/malaga/pluginfile.php/1004559/mod_assign/introattachment/0/js/jquery-3.7.1.min.js"></script>
+    <script src="C:\Users\alumnociclo\Desktop\jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           
+            $("div").has(".importante").css("background-color", "yellow");
+            $("p").not(".importante").css("color", "blue");
+            $("p").filter(".parrafo").css("font-size", "20px");
+            $("#contenedor").find(".destacado").css("color", "red");
+
+           
+            $("#contenedor").find().first().css("color", "yellow");
+            $("#contenedor").last().css("color", "green");
+
+            $("#contenedor").eq("1").css("font-size", "100px");
+            
+        });
+    </script>
+</head>
+<body>
+    <div id="contenedor">
+        <p class="parrafo">Este es el párrafo 1.</p>
+        <div class="contenedor-interno">
+            <p class="parrafo">Este es el párrafo 2.</p>
+            <span class="destacado">Texto destacado</span>
+        </div>
+        <p class="parrafo importante">Este es el párrafo 3, importante.</p>
+        <p class="parrafo">Este es el párrafo 4.</p>
+    </div>
+</body>
+</html>

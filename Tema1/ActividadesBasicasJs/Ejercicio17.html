@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 17</title>
+</head>
+<body>
+	<script>
+		/*PARAMETROS Y ARGUMENTOS
+			- Función puede tener cero o mas parámetros
+			- Parámetros son los nombre que aparecen en la definición de una función
+			-Argumentos con los valores que pasemos a (y que recibe) una función
+
+			REGLAS DE LOS PARAMETROS
+			-No se especifica el tipo de los parámetros.
+			-No se verifican los tipos de los argumentos 
+
+			//PARAMETROS POR DEFECTO
+			Cuando llamamos a una función con menos argumentos de los declarados. Los valores que faltan no están definidos */
+
+		function suma(a,b){
+			if (b === undefined)
+				b = 0;
+
+			return a + b;
+		}
+		var resultado = suma(4);
+		alert (resultado);
+
+		//PARAMETROS POR EXCESO
+		//Cuando llamamos a una función con más argumentos de los que ha sido declarado.Los valores que nos llegan suelen capturarse a través de un objeto(incluido en la función) llamada arguments.
+		function valores(){
+			alert("El numero de argumentos es "+arguments.length);
+			for(var i=0;i < arguments.length;i++){
+				alert("Argumento"+i+"="+argument[i]);
+
+			}
+		}
+		valores (4,2,4,2,2,5,2);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio5</title>
+</head>
+<body>
+    <p id="resultado"></p>
+    <script>
+
+        //Se piden los datos
+        var lado1 = parseFloat(prompt("introduzca el lado 1"));
+        var lado2 = parseFloat(prompt("introduzca el lado 2"));
+        var lado3 = parseFloat(prompt("introduzca el lado 3"));
+
+
+        //Se comprueban si los datos son correctos
+        if(isNaN(lado1)){
+            alert("El lado 1 contiene un valor no válido");
+        }
+
+        else if(isNaN(lado2)){
+            alert("El lado 2 contiene un valor no válido");
+        }
+
+        else if(isNaN(lado2)){
+            alert("El lado 3 contiene un valor no válido");
+        }
+
+
+        //Si todos los datos son correctos 
+        else{
+            //aplicacion de la formula
+            var p = (lado1 + lado2 + lado3)/2;
+            
+            var formula = Math.sqrt(p * (p - lado1) * (p - lado2) * (p - lado3));
+
+            //Se imprime el resultado con tres decimales
+            document.getElementById("resultado").innerHTML = "El área del triángulo es : " + formula.toFixed(3);
+        }
+    </script>
+</body>
+</html>

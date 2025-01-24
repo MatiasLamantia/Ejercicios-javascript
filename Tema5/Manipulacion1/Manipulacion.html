@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de JavaScript</title>
+    <script>
+        window.addEventListener("load",inico);
+
+        function inico(){
+            document.querySelector("#cambiarTextoBtn").addEventListener("click",cambiarTexto);
+            document.querySelector("#cambiarTextoBtn").addEventListener("click",cambiarParrafo);
+            document.querySelector("#cambiarTextoBtn").addEventListener("click",cambiarItems);
+            document.querySelector("#cambiarTextoBtn").addEventListener("click",cambiarAtributoImagen);
+
+        }
+        function cambiarTexto(){
+            let titulo = document.getElementById("titulo");
+            titulo.innerHTML = "Nueva Bienvenida";
+            titulo.setAttribute("id","NuevaBienvenida");
+        }
+
+        function cambiarParrafo(){
+            let parrafo = document.getElementsByClassName("parrafo");
+            parrafo[0].className = "Texto Modificado con Javacript";
+        }
+
+        function cambiarItems(){
+            let items = document.getElementsByTagName("li");
+            for (let i = 0; i < items.length; i++) {
+                items[i].innerHTML = "Nuevo Elemento";
+            }
+        }
+
+        function cambiarAtributoImagen(){
+            let imagen = document.getElementById("imagen");
+            imagen.setAttribute("alt","Nueva Imagen de Ejemplo");
+        }
+    </script>
+</head>
+<body>
+    <h1 id="titulo">¡Bienvenido a mi Página Web!</h1>
+    <p class="parrafo">Esta es una página de ejemplo para el ejercicio de JavaScript.</p>
+    <ul>
+        <li id="item1">Elemento 1</li>
+        <li id="item2">Elemento 2</li>
+        <li id="item3">Elemento 3</li>
+    </ul>
+    <button id="cambiarTextoBtn">Cambiar Texto</button>
+    <img id="imagen" src="https://educacionadistancia.juntadeandalucia.es/centros/malaga/pluginfile.php/959030/mod_assign/introattachment/0/imagen.jpg" alt="Imagen de ejemplo">
+</body>
+</html>

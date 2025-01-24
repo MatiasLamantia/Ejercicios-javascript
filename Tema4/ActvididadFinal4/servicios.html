@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios de valoración</title>
+</head>
+<body>
+    <h2>Servicio de Valoración:</h2>
+    <form id="formvalo">
+        <div id="nom">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre"><br>
+        </div>
+
+        <div id="cat">
+            <label f>Categoria:</label>
+            <input type="radio" id="perro" name="categoria" value="Perro">Perro
+            <input type="radio" id="gato" name="categoria" value="Gato">Gato
+            <input type="radio" id="pollo" name="categoria" value="Pollo">Pollo
+            <input type="radio" id="hamster" name="categoria" value="Hamster">Hamster
+            <input type="radio" id="loro" name="categoria" value="Loro">Loro
+        </div>
+
+        <div id="con">
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" name="contrasena" id="contrasena"><br>
+        </div>
+        
+        <input type="reset" id="reiniciar" value="Reiniciar">
+        <input type="submit" id="enviar" value="Enviar">
+    </form>
+
+    <div id="errores"></div>
+
+    <script src="servicios.js"></script>
+</body>
+</html>

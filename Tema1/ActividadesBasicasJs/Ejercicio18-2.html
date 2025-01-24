@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 18-2</title>
+</head>
+<body>
+	<script>
+		var num = prompt("Introduzca un número");
+		num=parseFloat(num);
+		if(Number.isInteger(num)){
+			console.log("El numero es entero");
+		}
+		else{
+			console.log("El numero es real");
+		}
+
+		if(num < 0){
+			console.log("El numero es menor a cero")
+		}
+		else if(num == 0){
+			console.log("El numero es igual a cero");
+		}
+		else{
+			console.log("el numero es mayor a cero")
+		}
+	</script>
+</body>
+</html>

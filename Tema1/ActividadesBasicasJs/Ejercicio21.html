@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 21</title>
+</head>
+<body>
+	<script>
+		/*SINTAXIS 
+			for(<sentencia1>;<sentencia2>;<sentencia3>){
+				//Codigo que se repite
+			}
+			- Sentencia 1 : Se ejecuta antes de que empiece el bloque de código que se repite
+			-Sentenica 2 : Define la condición por la que el bloque de código se va a ejecutar.
+			-Sentencia 3 : Se ejecuta después de que acabe el bloque de código a repetir */
+
+			var i;
+			for(i=0;i<=5;i++){
+				alert(i);
+			}
+
+			//Variaciones 
+			//1. Si quitamos la primera sentencia debemos haber inicializado la variable con anterioridad
+
+			var j = 1;
+			for ( ;j<=5; j++ ){
+				alert("j ="+j); 
+			}
+
+			//2. Si omitimos la segunda sentencia dentro del código a repetir debemos incluir una instrucción break
+			var k;
+			for (k=1 ; ; k++){
+				alert("k ="+k);
+				if(k == 5){
+					break;
+				} 
+
+			}
+
+			//3. Si omitimos la terceera sentencia debemos incrementar o descrementar el valor de la variable dentro del bucle
+			var l ;
+			for(l=1 ; l<=5 ; ){
+				alert("l ="+l);
+				l++;
+			}
+
+			//4. Podemos trabajar con dos o más valores dentro del buccle for
+			var m,n;
+			for (m=1,n=20;m<=20,n>=1;m++,n--){
+				alert ("m ="+m+" n = "+n);
+			}
+
+			//Definimos el objeto animal
+			var animal = {nombre: "Lola", tipo:"Hamster", raza:"Ruso"};
+
+			var prop;
+
+			for(prop in animal){
+				alert (animal[prop]);
+			}
+	</script>
+
+
+</body>
+</html>

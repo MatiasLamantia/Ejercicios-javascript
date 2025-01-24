@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de tableros luminosos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <label for="ancho">Ancho:</label>
+    <input type="number" id="ancho">
+    <label for="largo">Largo:</label>
+    <input type="number" id="largo">
+    <button id="crearTablero">Crear Tablero</button>
+    <button id="colores">Número de colores a utilizar</button>
+    <div id="tablero"></div>
+    <script>
+
+        //Al hacer click en el boton crear Tablero
+        let crearTablero = document.getElementById('crearTablero').addEventListener('click', generarTablero);
+
+
+         function generarTablero() {
+
+            //Obtengo los datos de el alto y ancho de la tabla
+            let ancho = parseInt(document.getElementById('ancho').value);
+            let largo = parseInt(document.getElementById('largo').value);
+
+            //Vacio el contenido de la tabla para reemplazarlo por uno nuevo
+            tablero.innerHTML = '';
+
+
+            //Bucle que crea todas las filas de la tabla
+            for (let i = 0; i < ancho; i++) {
+
+                let fila = document.createElement('div');
+                fila.className = 'fila';
+
+                //Bucle que crea todas las columnas de la tabla
+                for (let j = 0; j < largo; j++) {
+
+                    //Se crea el elemento div con la clase casilla y se añade a la fila
+                    let casilla = document.createElement('div');
+                    casilla.className = 'casilla';
+                    
+                    fila.appendChild(casilla);
+                }
+
+                //Se añade la fila a la tabla
+                tablero.appendChild(fila);
+            }
+        }
+
+
+        let colores = document.getElementById('colores');
+        let tablero = document.getElementById('tablero');
+
+        //funcion que genera un color aleatorio
+        function generarColorAleatorio() {
+         return '#' + Math.floor(Math.random()*16777215).toString(16);
+        }
+
+
+        colores.addEventListener('click', () => {
+
+            const numeroColores = parseInt(prompt('Ingrese el número de colores a utilizar:', '5'));
+
+            const colores = [];
+
+            //Se crean los colores que se van a utilizar para la tabla
+            for (let i = 0; i < numeroColores; i++) {
+                colores.push(generarColorAleatorio());
+            }
+           console.log(colores);
+            //Se guardan todas las casillas en un array
+            let casillas = tablero.querySelectorAll('.casilla');
+
+            //Intervalo que cambia el color de las casillas cada segundo
+            let intervalo = setInterval(() => {
+
+                //Array que recorre todas las casillas
+                for (let casilla of casillas) {
+
+                    //Se elige un color aleatorio de la lista de colores
+                    let color = colores[Math.floor(Math.random() * colores.length)];
+
+                    //Se cambia el color de la casilla
+                    casilla.style.backgroundColor = color;
+                }
+            }, 1000);
+
+            //Después de 10 segundos se detiene el intervalo y se quitan los colores de las casillas
+            setTimeout(() => {
+                clearInterval(intervalo);
+                for (let casilla of casillas) {
+                    casilla.style.backgroundColor = '';
+                }
+            }, 10000);
+        });
+    </script>
+</body>
+</html>

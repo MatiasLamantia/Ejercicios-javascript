@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="ODatos">Obtener Datos</button><br>
+    <h2>Filtrar por :</h2>
+    <form>
+        <label>Email :</label>
+        <input type="text" name="noe" id="noe"><br>
+        <button id="filtrar">Filtrar!</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById("ODatos").addEventListener("click", obtenerDatos, true);
+        document.getElementById("filtrar").addEventListener("click", filtrar, true);
+   
+       function obtenerDatos() {
+           var resultados = [];
+           let resultado = document.getElementById("resultado");
+   
+           fetch('https://jsonplaceholder.typicode.com/users')
+           .then(response => response.json())
+           .finally(json => {
+               json.forEach(jsonA => {
+                   resultados[jsonA.id] = {
+                       "email": jsonA.email,
+                       "name": jsonA.name,
+                       "username": jsonA.username,
+                       "phone": jsonA.phone
+                   }
+               });
+
+               for(let i = 0; i < resultados.length; i++){
+                   resultado.innerHTML = `Name : ${resultados[i]["name"]}`;
+               }
+           });
+       }
+   
+       function filtrar(){
+           // Puedes agregar lógica de filtrado aquí si es necesario
+       }
+    </script>
+</body>
+</html>

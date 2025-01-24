@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener('load',inicio);
+
+        function inicio(){
+            document.getElementById('mostrar').addEventListener('click',mostrar);
+        }
+
+        function mostrar(){
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                var resultado = JSON.parse(this.responseText);
+
+                document.getElementById('mostrar').innerHTML = resultado[0].nombre;
+            }
+            xhr.open('GET','info.php',true);
+        }
+    </script>
+</head>
+<body>
+    <button id="mostrar">Mostrar</button>
+    <div class="resultado"></div>
+</body>
+</html>

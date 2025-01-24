@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 25</title>
+</head>
+<body>
+<script>
+	//Ejemplo de break
+	var i;
+	for(i= 0; i< 10; i++){
+		if(i == 3){
+			break;
+		}
+		alert("i ="+i);
+	}
+
+	//Ejemplo de continue
+	var j;
+	for(j= 0; j< 10; j++){
+		if(j == 3){
+			continue;
+		}
+		alert("j ="+j);
+	}
+
+
+	//Ejemplo de break con etiquetas
+	var animales = ["perro","gato","hamster"];
+
+	ver_animales:
+	{
+		alert(animales[0]);
+		alert(animales[1]);
+		break ver_animales;
+		alert(animales[2]);
+	}
+
+	//Ejemplo continue con etiquetas
+		var k;
+	bucle:
+	 for(k= 0; k< 10; k++){
+		if(k == 3){
+			continue bucle;
+		}
+		alert("k ="+k);
+	}
+
+</script>
+</body>
+</html>

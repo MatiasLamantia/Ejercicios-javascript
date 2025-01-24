@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        .color-button {
+            width: 100px;
+            height: 100px;
+            border: none;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#red").on({
+                mouseenter : function() {
+                    $(this).css("background-color", "red");
+
+                    $("#red-count").text(parseInt($("#red-count").text())+1);
+
+                },
+                mouseleave : function() {
+                    $(this).css("background-color", "white");
+                }
+            });
+
+            $("#blue").on({
+                mouseenter : function() {
+                    $(this).css("background-color", "blue");
+                    $("#blue-count").text(parseInt($("#blue-count").text())+1);
+
+                },
+                mouseleave : function() {
+                    $(this).css("background-color", "white");
+                }
+            });
+
+            $("#green").on({
+                mouseenter : function() {
+                    $(this).css("background-color", "green");
+                    $("#green-count").text(parseInt($("#green-count").text())+1);
+
+                },
+                mouseleave : function() {
+                    $(this).css("background-color", "white");
+                }
+            });
+
+            $("#yellow").on({
+                mouseenter : function() {
+                    $("#yellow-count").text(parseInt($("#yellow-count").text())+1);
+                    $(this).css("background-color", "yellow");
+                },
+                mouseleave : function() {
+                    $(this).css("background-color", "white");
+                }
+            });
+
+
+            $("#reset").click(function() {
+                $("#red-count").text(0);
+                $("#blue-count").text(0);
+                $("#green-count").text(0);
+                $("#yellow-count").text(0);
+
+            });
+
+
+            $("#mostrarGanador").click(function() {
+                var red = parseInt($("#red-count").text());
+                var blue = parseInt($("#blue-count").text());
+                var green = parseInt($("#green-count").text());
+                var yellow = parseInt($("#yellow-count").text());
+
+                var ganador = Math.max(red, blue, green, yellow);
+
+                if (ganador == red) {
+                    alert("El ganador es el color Rojo");
+                } else if (ganador == blue) {
+                    alert("El ganador es el color Azul");
+                } else if (ganador == green) {
+                    alert("El ganador es el color Verde");
+                } else if (ganador == yellow) {
+                    alert("El ganador es el color Amarillo");
+                }
+
+                $("#reset").trigger("click");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="red" class="color-button">Rojo</button>
+    <button id="blue" class="color-button">Azul</button>
+    <button id="green" class="color-button">Verde</button>
+    <button id="yellow" class="color-button">Amarillo</button>
+    <button id="reset">Restablecer</button>
+    <p>Votos para Rojo: <span id="red-count">0</span></p>
+    <p>Votos para Azul: <span id="blue-count">0</span></p>
+    <p>Votos para Verde: <span id="green-count">0</span></p>
+    <p>Votos para Amarillo: <span id="yellow-count">0</span></p>
+
+    <button id="mostrarGanador">Mostrar Ganador</button>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando y Manipulando el DOM</title>
+    <script>
+        window.onload = inicio;
+
+        function inicio() {
+            let contenedor = document.getElementById("contenedor");
+            
+            console.log(contenedor.parentElement);
+
+            for (let i = 0; i < contenedor.children.length; i++) {
+                console.log(contenedor.children[i]);
+            }
+
+            console.log( contenedor.firstElementChild);
+            console.log(contenedor.lastElementChild);
+
+            console.log(contenedor.nextSibling);
+            console.log(contenedor.nextElementSibling);
+
+
+
+
+            for (let i = 0; i < contenedor.children.length; i++) {
+                contenedor.children[i].addEventListener("click", imprimir);
+            }
+
+            document.getElementById("agregarElemento").addEventListener("click",agregarElemento);
+
+            function imprimir(e) {
+                console.log(e.target.textContent);
+            }
+
+            function agregarElemento() {
+
+                let nuevoElemento = document.createElement("div");
+                nuevoElemento.textContent = "Elemento " + (contenedor.children.length);
+                contenedor.appendChild(nuevoElemento);
+
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div id="contenedor">
+        <div class="elemento">Elemento 1</div>
+        <div class="elemento">Elemento 2</div>
+        <div class="elemento">Elemento 3</div>
+        <button id="agregarElemento">Agregar Nuevo Elemento</button>
+    </div>
+
+</body>
+</html>

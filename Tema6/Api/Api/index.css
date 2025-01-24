@@ -1,0 +1,45 @@
+body {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "p1 p2"
+        "p1 p2";
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/fondo.jpg");
+    margin: 0; 
+    min-height: 100vh; 
+}
+
+.header {
+    grid-area: header;
+    background-color: #3E3232;
+    text-align: center;
+    padding: 40px;
+    color: antiquewhite;
+
+}
+
+.p1,
+.p2 {
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    margin: 3em;
+    grid-area: p1;
+    color: antiquewhite;
+    background-color: #3E3232;
+    height: 60vh;
+    padding: 20px;
+}
+
+.p2 {
+    grid-area: p2;
+}
+
+.botones {
+    grid-area: botones;
+    display: flex;
+    justify-content: center;
+    padding: 10px; 
+    width: 100%;    
+}

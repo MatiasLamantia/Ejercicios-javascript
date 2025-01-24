@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Traversing en jQuery</title>
+    <script src="C:\Users\alumnociclo\Desktop\jquery-3.7.1.min.js"></script>
+    <style>
+        .resaltado {
+            border: 2px solid orange;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            // Resaltar tercer hijo directo del elemento con la clase "nivel-1"
+            $(".nivel-1").children().eq(2).addClass("resaltado");
+
+            // Resaltar antecesores del segundo párrafo hasta el elemento con la clase "contenedor"
+            $(".nivel-2").prevUntil(".contenedor").addClass("resaltado");
+            
+            // Resaltar todos los hermanos del segundo elemento de la lista dentro del tercer nivel
+            $(".nivel-3").children("ul").children().eq(1).siblings().addClass("resaltado");
+
+            // Resaltar el siguiente hermano del cuarto párrafo
+            $("p").eq(2).next().addClass("resaltado");
+
+            // Añadir nueva imagen después del quinto párrafo
+            $("p").eq(3).after("<img alt='imagen'></img>");
+
+            // Clonar y añadir último enlace del segundo nivel al primer div del tercer nivel
+            $(".nivel-2").children("ul").children("li").last().clone().appendTo($(".nivel-3").children("div").first());
+
+            // Eliminar tercer elemento de la lista dentro del segundo nivel y sus descendientes
+            $(".nivel-2").children().eq(1).remove();
+            
+            // Añadir nuevo título h2 antes del elemento con la clase "nivel-2"
+            $(".nivel-2").before("<h2>Titulo </h2>");
+        });
+    </script>
+</head>
+<body>
+    <h1>Traversing en jQuery</h1>
+    <div class="contenedor">
+        <div class="nivel-1">
+            <p>Primer Párrafo</p>
+            <ul>
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+            </ul>
+        </div>
+        <div class="nivel-2">
+            <p>Segundo Párrafo</p>
+            <ul>
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+                <li>Elemento 3</li>
+            </ul>
+        </div>
+        <div class="nivel-3">
+            <ul>
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+            </ul>
+            <p>Cuarto Párrafo</p>
+            <p>Quinto Párrafo</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <script src="C:\Users\alumnociclo\Desktop\jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            console.log($("p").text());
+            console.log($("a").attr("href"));
+            console.log($("input").val());
+
+            $("p").text("Nuevo párrafo");
+            $("a").text("Nuevo enlace");
+            $("input").val("Nuevo valor");
+
+            $("a").attr("href",function(i,original){
+                return original + "/actualizado";
+            });
+
+            $("a").attr({"title":"Sitio Actualizado","target":"_blank"});
+
+            $("a").attr("href",function(i,original){
+                return original + i;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="contenedor">
+        <p>Este es un párrafo</p>
+        <input value="Valor Original del Input"/>
+        <a href="http://www.miweb.com">Enlace Original</a>
+    </div>
+</body>
+</html>

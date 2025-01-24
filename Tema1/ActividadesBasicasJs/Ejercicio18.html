@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 18</title>
+</head>
+<body>
+	<script>
+		//Variables Locales
+		/* - Se definde dentro de una función
+			- Tienen ámbiro local en la función
+			- Son accesibles únicamente dentro de la fuinción
+			- Variable local desaparece cuando finaliza la función */
+		function saludar(){
+			var saludo ="Hola";
+			alert (saludo);
+		}
+		saludar();
+
+		//Variables globales
+		/* - Se definen fuera de las funciones
+			- Tienen ámbito global (en toda la página)
+			- Son accesibles désde fuera y dentro de las funciones
+			- Variables globales desaparecen cuando se sale de la página */
+
+		var despedida = "Adios";
+		function despedir(){
+			alert(despedida);
+		}
+		despedir();
+
+		//Variables automáticamente globales
+		// - Si asignamos un valor a una variable no declarada se convierte en gloval
+
+		function preguntar(){
+			pregunta = "¿De que color es el caballo blanco de santiago?";
+		}
+		preguntar();
+		alert(pregunta);
+
+		//Variables locales y globales con el mismo nombre
+		var miVariable = "Fuera";
+		function ambito(){
+			var miVariable = "Dentro";
+			alert(miVariable);
+		}
+		alert(miVariable);
+		ambito();
+		alert(miVariable);
+
+		//variable global redefinida en una función
+		var miVariable2 = "Fuera";
+		function ambito2(){
+			 miVariable2 = "Dentro";
+			alert(miVariable2);
+		}
+		alert(miVariable2);
+		ambito2();
+		alert(miVariable2);
+
+	</script>
+</body>
+</html>

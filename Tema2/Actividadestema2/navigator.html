@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Información del Navegador</h2>
+    <p id="navigator"></p>
+
+    <h2>Información de la Pantalla</h2>
+    <p id="screen"></p>
+    <h2>Historial de Navegación</h2>
+    <button onclick="abrirVentana()">Abrir ventana</button>
+    <button onclick="recargarVentana()">Recargar Ventana</button>
+    <button onclick="irAtras()">Ir Atras</button>
+    <button onclick="irAdelante()">Ir Adelante</button>
+
+
+    <h2>Información de la URL</h2>
+    <p id="location"></p>
+    <script>
+        var infonav;
+        infonav = "<b>Navegador </b>" + navigator.appCodeName;
+        infonav += "<br><b>Version </b>" + navigator.appVersion;
+        infonav += "<br><b>Sistema Operativo </b>" + navigator.platform;
+
+        document.getElementById("navigator").innerHTML = infonav;
+
+        var infoscreen;
+        infoscreen = "<b>Ancho de Pantalla </b>" + screen.width;
+        infoscreen += "<br><b>Alto de Pantalla </b>" + screen.height;
+        infoscreen += "<br><b>Profundidad de Color </b>" + screen.colorDepth;
+
+        document.getElementById("screen").innerHTML = infoscreen;
+
+
+        function abrirVentana(){
+            window.location = "http://www.google.com";
+
+
+        }
+
+        function recargarVentana(){
+          window.location.reload();
+        }
+
+        function irAtras(){
+            window.history.back();
+        }
+
+        function irAdelante(){
+            window.history.forward();
+        }
+
+
+        var infolocation;
+        infolocation = "<b>URL Completa </b>" + location.href;
+        infolocation += "<br><b>Protocolo </b>" + location.protocol;
+        infolocation += "<br><b>Puerto </b>" + location.port;
+
+        document.getElementById("location").innerHTML = infolocation;
+
+    </script>
+</body>
+</html>

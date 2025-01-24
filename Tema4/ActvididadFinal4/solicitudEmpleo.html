@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Empleo</title>
+</head>
+<body>
+    <form id="formEmpleo">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="telefono">Teléfono</label>
+        <input type="text" id="telefono" name="telefono" maxlength="9" minlength="9" pattern="[6-9][0-9]*" required><br>
+
+        <label for="formacion">Formación:</label>
+        <input list="formaciones" id="formacion" name="formacion" />
+        <datalist id="formaciones">
+            <option value="Ies Fuengirola nº1"></option>
+            <option value="Universidad de Granada"></option>
+            <option value="Universidad de Sevilla"></option>
+            <option value="Universidad de Málaga"></option>
+        </datalist><br>
+        <input type="reset" id="reiniciar" value="reiniciar">
+        <input type="submit" id="enviar" value="Enviar">
+    </form><br>
+
+    <div id="visitas"></div>
+    <div id="resultado"></div>
+
+    <script src="solicitudEmpleo.js"></script>
+</body>
+</html>

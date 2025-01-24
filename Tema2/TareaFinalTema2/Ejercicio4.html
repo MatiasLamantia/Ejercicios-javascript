@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio4</title>
+</head>
+<body>
+    <p id="resultado"></p>
+    <script>
+
+    //Fecha del estreno y actual
+    var estreno = new Date("2002-12-18");
+    var fechaActual = new Date();
+
+    //La diferencia entre el estreno y la fecha actual
+    var diferencia = fechaActual - estreno;
+
+    var resultado="";
+
+    //milisegundos en un dia
+    var milisegundosEnUnDia = 86400000;
+
+    //Milisegundos por media de dias que hay en un mes 
+    var milisegundosPorMes = milisegundosEnUnDia * 30.44;
+
+    //Milisegundos por media de dias que hay en un año
+    var milisegundosPorAnio = milisegundosEnUnDia * 365.25; 
+
+
+    //Se imprime el resultado quitando los decimales mediante la funcion math.truncs
+    resultado += "Han pasado "+Math.trunc(diferencia / milisegundosEnUnDia) +" días desde el estreno \n"
+    resultado += "Han pasado "+Math.trunc(diferencia / (milisegundosEnUnDia * 30.44))+" meses desde el estreno \n"
+    resultado += "Han pasado "+Math.trunc(diferencia / (milisegundosEnUnDia * 365.25))+ " años desde el estreno \n"
+
+
+    document.getElementById("resultado").innerText = resultado;
+
+</script>
+</body>
+</html>

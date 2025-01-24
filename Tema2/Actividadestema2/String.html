@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script>
+		var cadena = "Hola";
+		alert();
+	</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Descifra el Mensaje Secreto</title>
+        <script>
+
+            // Ejercicio: Descifra el Mensaje Secreto
+
+            // Mensaje original
+            const mensajeOriginal = "h3llo, W0rld!";
+
+            // Paso 1: Crea una función para invertir la cadena de texto
+            function invertirCadena(cadena) {
+                cadena = cadena.split("").reverse().join("");
+				return cadena;
+            }
+
+            // Paso 2: Crea una función para eliminar los caracteres no alfabéticos
+            function eliminarNoAlfabeticos(cadena) {
+
+				cadena = cadena.replace(/^[a-zA-Z]/g, "");
+				return cadena;
+            }
+
+            // Paso 3: Crea una función para convertir la cadena a minúsculas
+            function convertirAMinusculas(cadena) {
+                cadena = cadena.toLowerCase;
+
+            }
+
+            // Paso 4: Aplica las funciones en orden para descifrar el mensaje
+            function descifrarMensaje(mensaje) {
+                mensaje = invertirCadena(eliminarNoAlfabeticos(convertirAMinusculas(mensaje)));
+				return mensaje;
+			}
+            // Prueba el código
+            const mensajeDescifrado = descifrarMensaje(mensajeOriginal);
+            console.log("Mensaje Descifrado: " + mensajeDescifrado);
+
+            </script>
+</head>
+
+    <body>
+        <h1>Descifra el Mensaje Secreto</h1>
+    </body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Estilos opcionales para los elementos */
+        .elemento {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+        }
+        #cuadrado1 {
+            background-color: red;
+        }
+        #cuadrado2 {
+            background-color: blue;
+        }
+        #cuadrado3 {
+            background-color: green;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            // Ejemplo de función para crear un espectáculo visual
+            function crearEspectaculo() {
+                // Ocultar todos los elementos al inicio
+                $("#cuadrado1").hide()
+                $("#cuadrado2").hide()
+                $("#cuadrado3").hide()
+                // Mostrar todos los elementos con diferentes efectos
+                $("#cuadrado1").fadeIn(1000)
+                $("#cuadrado2").slideDown("slow")
+                $("#cuadrado3").fadeIn("fast")
+
+                // Encadenar efectos en el segundo cuadrado
+                $("#cuadrado2").delay().hide("fast").fadeIn(1000);
+                // Animar el primer cuadrado
+                $("#cuadrado1").animate({
+                    height: "200px",
+                    width: "200px",
+                    opacity: 0.25,
+                }, 1500);
+                // Detener la animación después de 2 segundos
+                $("#cuadrado1").delay(2000).stop();
+                // Mostrar un mensaje al finalizar la animación
+                $("#cuadrado3").delay(2000).fadeOut("slow");
+                $("#cuadrado2").delay(2000).fadeOut("slow");
+                $("#cuadrado1").animate({
+                    width: "100px",
+                    height: "100px",
+                    opacity: 1,
+                }, 1500);
+                $("#cuadrado1").fadeOut("slow", function () {
+                    alert("Espectaculo finalizado");
+                });
+
+                
+                
+            }
+
+            // Llamar a la función al hacer clic en el botón
+            $("#crearEspectaculo").click(function () {
+                crearEspectaculo();
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Botón para iniciar el espectáculo -->
+    <button id="crearEspectaculo">Crear Espectáculo</button>
+    
+    <!-- Elementos que serán parte del espectáculo -->
+    <div id="cuadrado1" class="elemento"></div>
+    <div id="cuadrado2" class="elemento"></div>
+    <div id="cuadrado3" class="elemento"></div>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.botones{
+    display: flex;
+    justify-content: space-around;
+}
+iframe{
+    width: 50%;
+    height: 50%;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <p id="resultado"></p>
+    <script>
+        var resultado="";
+
+        if('battery' in navigator){
+            resultado +="Tu dispositivo contiene bateria <br>";
+        }else{
+            resultado +="Tu dispositivo no contiene bateria <br>";
+        }
+
+
+        if('vibrate' in navigator){
+            resultado +="Tu dispositivo soporta vibración <br>";
+        }else{
+            resultado +="Tu dispositivo no soporta vibración <br>";
+        }
+
+
+        resultado+="\n Datos de cpu :" + navigator.oscpu;
+        document.getElementById("resultado").innerHTML = resultado;
+    </script>
+</body>
+</html>

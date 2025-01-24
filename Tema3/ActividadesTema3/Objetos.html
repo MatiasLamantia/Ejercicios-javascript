@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Libros</title>
+</head>
+<body>
+  <h1>Registro de Libros</h1>
+
+  <script>
+    // Array para almacenar los libros
+    var registroLibros = [];
+    function libro (nom,autor,ano,categoria){
+      this.nombre = nom;
+      this.autor = autor;
+      this.ano =ano;
+      this.categoria = categoria;
+    } 
+    // Función para agregar un nuevo libro al registro
+    function agregarLibro(nombre,autor,ano,categoria){
+      var libroActual = new libro(nombre,autor,ano,categoria);
+      registroLibros.push(libroActual);
+    }
+    // Función para mostrar la información de todos los libros en el registro
+    function mostrarLibros(){
+      registroLibros.forEach(libro => {
+        document.write(" Nombre : "+libro.nombre + "<br> Autor :" + libro.autor + "\n Año :" + libro.ano + "<br> Categoria : " + libro.categoria + "<br><br>");
+      });
+      document.write("\n");
+    }
+    // Función para buscar libros por autor
+    function buscarLibroPorAutor(autor){
+      var resultado;
+      registroLibros.forEach(libro => {
+        if(autor == libro.autor){
+          resultado = libro.nombre;
+        }
+      });
+      return resultado;
+    }
+    // Ejemplo de uso:
+    agregarLibro("El Hobbit", "J.R.R. Tolkien", 1937, "Fantasía");
+    agregarLibro("Cien años de soledad", "Gabriel García Márquez", 1967, "Realismo Mágico");
+
+    mostrarLibros();
+
+    const librosDeTolkien = buscarLibroPorAutor("J.R.R. Tolkien");
+    console.log("Libros de J.R.R. Tolkien:", librosDeTolkien);
+  </script>
+</body>
+</html>

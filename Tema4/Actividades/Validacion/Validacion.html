@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Validación</title>
+</head>
+<body>
+
+    <form id="miFormulario">
+        <!-- Campos del formulario -->
+
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required pattern="[A-Za-z\s]+" title="Solo se permiten letras y espacios"><br>
+
+        <!-- Agrega los demás campos aquí -->
+        <label for="fechana">Fecha de nacimiento</label>
+        <input type="date" name="fechana" id="fechana" ><br>
+
+        <label for="numero">Número de teléfono</label>
+        <input type="text" pattern="[0-9]{9}" name="numero" id="numero" title="El telefono deben ser 9 número"><br>
+
+        <label for="correo">Correo electronico</label>
+        <input type="email" name="correo" id="correo"><br>
+
+        <label for="contrasena1">Introduzca la contraseña</label>
+        <input type="password" name="contrasena1" id="contrasena1" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$" title="La contraseña debe contener al menos 8 caracteres, incluyendo números, letras mayúsculas y minúsculas, y al menos un carácter especial"><br>
+
+        <label for="contrasena2">Repita la contraseña</label>
+        <input type="password" name="contrasena2" id="contrasena2"><br>
+
+    
+        <label for="sexo">Sexo:</label>
+        <input type="radio" name="sexo" id="sexo1" value="H">
+        <input type="radio" name="sexo" id="sexo2" value="M"><br>
+
+        <input type="submit" name="enviar" id="enviar" value="Enviar">
+
+    </form>
+
+    <script>
+        function validarFormulario() {
+            // Agrega aquí la lógica de validación utilizando expresiones regulares y funciones de validación HTML5
+            let salida = false;
+            let contrasena1 = document.getElementById("contrasena1").value;
+            let contrasena2 = document.getElementById("contrasena2").value;
+            let sexo1 = document.getElementById("sexo1").value;
+            let sexo2 = document.getElementById("sexo2").value;
+            if(sexo1.checked || sexo2.checked){
+                if(contrasena1 == contrasena2){
+                    salida = true;
+                }
+            }
+           
+            return salida; // Devuelve true si el formulario es válido, de lo contrario, devuelve false
+        }
+
+       let enviar =  document.getElementById("enviar");
+
+       enviar.addEventListener("click",validarFormulario,false);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <iframe src="" frameborder="0" id="iframe"></iframe><br>
+
+        <button onclick="wikipedia()">Wikipedia</button>
+        <button onclick="google()">Google</button>
+        <button onclick="youtube()">Youtube</button>
+    </div>
+
+    <script>
+
+    /*
+        En los enlaces de google y youtube no se pueden visualizar desde iframes ya que tienenen políticas de seguridad que no los permite.
+
+        Esta función se activa para que las páginas web no puedan sufrir ataques de clickjacking
+    */
+        function google(){
+            var iframe = document.querySelector("iframe");
+            iframe.setAttribute("src", "https://www.google.com/");
+        }
+
+        function youtube(){
+            var iframe = document.querySelector("iframe");
+            iframe.setAttribute("src", "https://www.youtube.com/");
+        }
+
+        function wikipedia(){
+            var iframe = document.querySelector("iframe");
+            iframe.setAttribute("src", "https://es.wikipedia.org/wiki/Wikipedia:Portada");
+        }
+    </script>
+</body>
+</html>
